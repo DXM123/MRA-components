@@ -1,1 +1,13 @@
 build --action_env=BAZEL_CXXOPTS="-std=c++17" --build_python_zip
+build --bes_backend=grpcs://mra.buildbuddy.io
+build --remote_cache=grpcs://mra.buildbuddy.io
+build --remote_download_toplevel # Helps remove network bottleneck if caching is enabled
+build --remote_timeout=600
+build --color=yes
+build --noslim_profile 
+build --experimental_profile_include_target_label 
+build --experimental_profile_include_primary_output 
+build --experimental_remote_cache_compression 
+build --experimental_remote_build_event_upload=minimal 
+build --nolegacy_important_outputs
+build --remote_header=x-buildbuddy-api-key=RDz1TP7yHlnJg7Z7MB1D
